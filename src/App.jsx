@@ -13,7 +13,11 @@ function App() {
     setAddCheck({ ...addCheck, list: list })
     setAddCheck({ ...addCheck, itemName: '' })
   }
-  console.log(addCheck.list);
+  const Delete = (index) => {
+    const list = addCheck.list
+    list.splice(index, 1)
+    setAddCheck({...addCheck, list:list})
+  }
   const Checkbox = () => {
     return (
       addCheck.list.map((item, index) => {
@@ -21,7 +25,7 @@ function App() {
           <div key={index}>
             <input type='checkbox' />
             {item}
-            <button>Delete</button>
+            <button onClick={Delete}>Delete</button>
           </div>
         )
       })
